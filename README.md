@@ -1,2 +1,8 @@
 # IHM_project
-Some people think it's okay to "miss" a week of work and have us work during our holidays. You know who you are, I hate you.
+Authors :
+ * Victor Archambault
+ * Emilion Goddet
+ * Léon Delcroix
+ * Ariane Laiguillon
+ 
+If you find that this project is not of the best quality, the explaination is simple : we did not have a course on this.
