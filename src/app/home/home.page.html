@@ -15,3 +15,13 @@
 
   <app-user-list [userList]="userList$ | async" (selectedUser)="selectedUser($event)"></app-user-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button id="signin-button" expand="full"
+      (click)="seDeconnecter()">
+      Se Déconnecter
+      <ion-icon slot="end" name="log-in-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
