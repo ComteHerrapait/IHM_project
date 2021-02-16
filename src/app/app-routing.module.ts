@@ -22,6 +22,10 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
+  {
+    path: 'user-register',
+    loadChildren: () => import('./user-register/user-register.module').then( m => m.UserRegisterPageModule)
+  },
 
 ];
 
