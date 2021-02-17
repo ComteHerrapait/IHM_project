@@ -9,7 +9,7 @@ export class IsSignedInGuard implements CanActivate {
   constructor(private router: Router) {
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const tokenExist = !!localStorage.getItem('token');
 
     if (!tokenExist) {

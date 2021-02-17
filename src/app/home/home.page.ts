@@ -31,4 +31,7 @@ export class HomePage implements OnInit {
     this.router.navigateByUrl('login');
   }
 
+  postUser(){
+    return this.userService.postUser();
+  }
 }

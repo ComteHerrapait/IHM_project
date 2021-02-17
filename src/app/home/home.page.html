@@ -15,7 +15,7 @@
 
   <app-user-list [userList]="userList$ | async" (selectedUser)="selectedUser($event)"></app-user-list>
 
-  <ion-button expand="full" routerLink="/user-register">
+  <ion-button expand="full" (click)="postUser()">
       Nouvel Utilisateur
   </ion-button>
 </ion-content>
