@@ -24,7 +24,8 @@ const routes: Routes = [
   },
   {
     path: 'user-register',
-    loadChildren: () => import('./user-register/user-register.module').then( m => m.UserRegisterPageModule)
+    loadChildren: () => import('./user-register/user-register.module').then( m => m.UserRegisterPageModule),
+    canActivate: [ IsSignedInGuard ]
   },
 
 ];

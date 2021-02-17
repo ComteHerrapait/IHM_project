@@ -35,6 +35,16 @@ export class UserService {
     );
   }
 
+  postUser(){
+    const postData = {
+      name: 'morpheus',
+      job: 'leader'
+    };
+    return this.httpApi.post('https://reqres.in/api/users', postData).pipe(
+      map((response: any) => response?.data)
+    );
+  }
+
   isMinPrice(price: number): boolean {
     const priceRef = 12;
     return price < priceRef;

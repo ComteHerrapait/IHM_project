@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { UserService } from '../api/user.service';
 
 @Component({
   selector: 'app-user-register',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserRegisterPage implements OnInit {
 
-  constructor() { }
+  userRegister$: Observable<any>;
+
+  constructor(
+    public userService: UserService,
+    public actRoute: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.userRegister$ = this.userService.postUser();
   }
 
 }
