@@ -1,22 +1,22 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
-import { catchError, map, tap } from "rxjs/operators";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class UserService {
   constructor(public httpApi: HttpClient) {}
 
   login(email: string, password: string): Observable<boolean> {
     return this.httpApi
-      .post("https://reqres.in/api/login", {
+      .post('https://reqres.in/api/login', {
         email,
         password,
       })
       .pipe(
-        tap((response: any) => localStorage.setItem("token", response?.token)),
+        tap((response: any) => localStorage.setItem('token', response?.token)),
         map((response: any) => !!response?.token),
         catchError(() => of(false))
       );
@@ -24,7 +24,7 @@ export class UserService {
 
   getUserList() {
     return this.httpApi
-      .get("https://reqres.in/api/users?page=1")
+      .get('https://reqres.in/api/users?page=1')
       .pipe(map((response: any) => response?.data));
   }
 
@@ -35,14 +35,15 @@ export class UserService {
   }
 
   postUser() {
-    let postData = {
-      name: "morpheus",
-      job: "leader",
+    const postData = {
+      name: 'morpheus',
+      job: 'leader',
     };
 
-    this.httpApi.post("https://reqres.in/api/users", postData).subscribe(
+    this.httpApi.post('https://reqres.in/api/users', postData).subscribe(
       (data) => {
-        console.log(data["_body"]);
+        // tslint:disable-next-line: no-string-literal
+        console.log(data['_body']);
       },
       (error) => {
         console.log(error);
