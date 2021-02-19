@@ -4,34 +4,50 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
-  constructor(
-    public httpApi: HttpClient
-  ) { }
+  constructor(public httpApi: HttpClient) {}
 
   login(email: string, password: string): Observable<boolean> {
-    return this.httpApi.post('https://reqres.in/api/login', {
-      email,
-      password
-    }).pipe(
-      tap((response: any) => localStorage.setItem('token', response?.token)),
-      map((response: any) => !!response?.token),
-      catchError(() => of(false))
-    );
+    return this.httpApi
+      .post('https://reqres.in/api/login', {
+        email,
+        password,
+      })
+      .pipe(
+        tap((response: any) => localStorage.setItem('token', response?.token)),
+        map((response: any) => !!response?.token),
+        catchError(() => of(false))
+      );
   }
 
   getUserList() {
-    return this.httpApi.get('https://reqres.in/api/users?page=1').pipe(
-      map((response: any) => response?.data)
-    );
+    return this.httpApi
+      .get('https://reqres.in/api/users?page=1')
+      .pipe(map((response: any) => response?.data));
   }
 
   getUserDetail(id: number): Observable<any> {
-    return this.httpApi.get(`https://reqres.in/api/users/${id}`).pipe(
-      map((response: any) => response?.data)
+    return this.httpApi
+      .get(`https://reqres.in/api/users/${id}`)
+      .pipe(map((response: any) => response?.data));
+  }
+
+  postUser() {
+    const postData = {
+      name: 'morpheus',
+      job: 'leader',
+    };
+
+    this.httpApi.post('https://reqres.in/api/users', postData).subscribe(
+      (data) => {
+        // tslint:disable-next-line: no-string-literal
+        console.log(data['_body']);
+      },
+      (error) => {
+        console.log(error);
+      }
     );
   }
 

@@ -14,4 +14,18 @@
   </ion-header>
 
   <app-user-list [userList]="userList$ | async" (selectedUser)="selectedUser($event)"></app-user-list>
+
+  <ion-button expand="full" (click)="postUser()">
+      Nouvel Utilisateur
+  </ion-button>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button id="logout-button" expand="full"
+      (click)="seDeconnecter()">
+      Se Déconnecter
+      <ion-icon slot="end" name="log-out-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

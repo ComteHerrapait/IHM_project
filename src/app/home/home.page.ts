@@ -26,4 +26,12 @@ export class HomePage implements OnInit {
     this.userList$ = this.userService.getUserList();
   }
 
+  seDeconnecter(){
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('login');
+  }
+
+  postUser(){
+    return this.userService.postUser();
+  }
 }

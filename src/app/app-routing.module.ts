@@ -18,11 +18,14 @@ const routes: Routes = [
     canActivate: [ IsSignedInGuard ]
   },
   {
+    path: 'registration',
+    loadChildren: () => import('./registration/registration.module').then( m => m.RegistrationPageModule)
+  },
+  {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full'
   },
-
 ];
 
 @NgModule({
