@@ -1,19 +1,22 @@
 # IHM_project
 
-  - [Authors :](#authors-)
-  - [How to get started :](#how-to-get-started-)
-  - [Documentation](#documentation)
-## Authors :
- * Victor Archambault
- * Emilion Goddet
- * Léon Delcroix
- * Ariane Laiguillon
+- [Authors](#authors)
+- [How to get started](#how-to-get-started)
+- [Documentation](#documentation)
 
-## How to get started :
-* Pull the project.
-* Go into the project and use npm install.
-* Run the command "ng serve" to start the serve
-* Open localhost:4200 
+## Authors
+
+- Victor Archambault
+- Emilion Goddet
+- Léon Delcroix
+- Ariane Laiguillon
+
+## How to get started
+
+- Pull the project.
+- Go into the project and use npm install.
+- Run the command "ng serve" to start the serve
+- Open localhost:4200 
 
  ## Documentation
 
